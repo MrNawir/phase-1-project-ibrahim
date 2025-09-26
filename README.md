@@ -87,12 +87,6 @@ ChamaChama/
 └── .gitignore
 ```
 
-## Grading Rubric Mapping
-- **Integrate JavaScript and an external API**: Uses JSON Server for RESTful CRUD; `app.js` performs fetch, POST, PATCH, DELETE
-- **Debug issues in small- to medium-sized project**: Clear console errors/messages, separated concerns (render, data, charts)
-- **Coding Best Practices**: Semantic HTML, modular JS functions, accessibility-friendly labels, responsive styles, and safe formatting
-- **Technical Communication**: README with clear setup and usage instructions
-
 ## Notes
 - Charts use aggregated current values and net gain by category to provide insights at a glance.
 - ROI is computed per row and portfolio-wide; divide-by-zero is handled safely.

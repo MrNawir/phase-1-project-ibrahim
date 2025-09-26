@@ -19,15 +19,6 @@
       "notes": "Low risk"
     },
     {
-      "id": 3,
-      "name": "Bitcoin (BTC)",
-      "category": "Crypto",
-      "amountInvested": 1000,
-      "currentValue": 850,
-      "date": "2024-05-20",
-      "notes": "High volatility"
-    },
-    {
       "id": 4,
       "name": "Vanguard S&P 500 ETF (VOO)",
       "category": "ETF",
@@ -53,6 +44,15 @@
       "currentValue": 1305.4,
       "date": "2024-03-12",
       "notes": "Mid-cap focus"
+    },
+    {
+      "name": "TESLA",
+      "category": "Stocks",
+      "amountInvested": 1000,
+      "currentValue": 500,
+      "date": "2025-09-26",
+      "notes": "Elon Musk Tweeted (Again)",
+      "id": 7
     }
   ]
 }
