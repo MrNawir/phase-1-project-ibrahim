@@ -1,0 +1,13 @@
+{
+  "name": "chamachama",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ChamaChama — SPA to track investments using JSON Server backend",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3000 --delay 300",
+    "server:3001": "json-server --watch db.json --port 3001 --delay 300"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "investments": [
+    {
+      "id": 1,
+      "name": "Apple Inc. (AAPL)",
+      "category": "Stocks",
+      "amountInvested": 1500,
+      "currentValue": 1980.25,
+      "date": "2024-02-15",
+      "notes": "Long-term growth"
+    },
+    {
+      "id": 2,
+      "name": "US Treasury 10Y",
+      "category": "Bonds",
+      "amountInvested": 2000,
+      "currentValue": 2045.5,
+      "date": "2024-01-10",
+      "notes": "Low risk"
+    },
+    {
+      "id": 3,
+      "name": "Bitcoin (BTC)",
+      "category": "Crypto",
+      "amountInvested": 1000,
+      "currentValue": 850,
+      "date": "2024-05-20",
+      "notes": "High volatility"
+    },
+    {
+      "id": 4,
+      "name": "Vanguard S&P 500 ETF (VOO)",
+      "category": "ETF",
+      "amountInvested": 2500,
+      "currentValue": 2825.75,
+      "date": "2023-12-05",
+      "notes": "Diversified index"
+    },
+    {
+      "id": 5,
+      "name": "Downtown Rental Unit",
+      "category": "Real Estate",
+      "amountInvested": 5000,
+      "currentValue": 5600,
+      "date": "2023-11-01",
+      "notes": "Monthly rent income"
+    },
+    {
+      "id": 6,
+      "name": "Growth Mutual Fund A",
+      "category": "Mutual Fund",
+      "amountInvested": 1200,
+      "currentValue": 1305.4,
+      "date": "2024-03-12",
+      "notes": "Mid-cap focus"
+    }
+  ]
+}

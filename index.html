@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChamaChama — Investment Tracker</title>
+    <meta name="description" content="Monitor your investments, track progress, and make informed decisions." />
+    <!-- Preload local app font -->
+    <link rel="preload" href="./fonts/DaddyTimeMonoNF.woff2" as="font" type="font/woff2">
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="container header-inner">
+        <h1>ChamaChama</h1>
+        <p class="tagline">Track investments. See progress. Decide smarter.</p>
+      </div>
+    </header>
+
+    <main class="container app-main">
+      <!-- Add Investment Form -->
+      <section class="card" aria-labelledby="form-title">
+        <div class="card-header">
+          <h2 id="form-title">Add Investment</h2>
+        </div>
+        <form id="investment-form" class="form-grid">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g., Apple Stock (AAPL)" required />
+          </div>
+
+          <div class="form-field">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+              <option value="">Select category</option>
+              <option>Stocks</option>
+              <option>Bonds</option>
+              <option>Crypto</option>
+              <option>Real Estate</option>
+              <option>Mutual Fund</option>
+              <option>ETF</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="amountInvested">Amount Invested</label>
+            <input type="number" id="amountInvested" name="amountInvested" step="0.01" min="0" placeholder="0.00" required />
+          </div>
+
+          <div class="form-field">
+            <label for="currentValue">Current Value</label>
+            <input type="number" id="currentValue" name="currentValue" step="0.01" min="0" placeholder="0.00" required />
+          </div>
+
+          <div class="form-field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+
+          <div class="form-field form-notes">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="1" placeholder="Optional notes..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add Investment</button>
+            <button type="reset" class="btn btn-ghost">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Dashboard Summary -->
+      <section class="card" aria-labelledby="dashboard-title">
+        <div class="card-header"><h2 id="dashboard-title">Dashboard</h2></div>
+        <div class="cards-grid" id="summary-cards">
+          <div class="mini-card">
+            <div class="mini-card-label">Total Invested</div>
+            <div class="mini-card-value" id="totalInvested">—</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-card-label">Current Value</div>
+            <div class="mini-card-value" id="totalCurrent">—</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-card-label">Net Gain/Loss</div>
+            <div class="mini-card-value" id="netGain">—</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-card-label">ROI</div>
+            <div class="mini-card-value" id="roiPercent">—</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters -->
+      <section class="card" aria-labelledby="filters-title">
+        <div class="card-header"><h2 id="filters-title">Filters</h2></div>
+        <div class="filters-grid">
+          <div class="form-field">
+            <label for="search">Search</label>
+            <input type="text" id="search" placeholder="Search by name or notes..." />
+          </div>
+          <div class="form-field">
+            <label for="filterCategory">Category</label>
+            <select id="filterCategory">
+              <option value="">All</option>
+              <option>Stocks</option>
+              <option>Bonds</option>
+              <option>Crypto</option>
+              <option>Real Estate</option>
+              <option>Mutual Fund</option>
+              <option>ETF</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="dateFrom">From</label>
+            <input type="date" id="dateFrom" />
+          </div>
+          <div class="form-field">
+            <label for="dateTo">To</label>
+            <input type="date" id="dateTo" />
+          </div>
+          <div class="form-actions">
+            <button id="resetFilters" class="btn btn-ghost">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Table + Charts -->
+      <section class="two-col">
+        <div class="card" aria-labelledby="table-title">
+          <div class="card-header"><h2 id="table-title">Investments</h2></div>
+          <div class="table-wrapper">
+            <table class="table" id="investments-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th class="num">Invested</th>
+                  <th class="num">Current</th>
+                  <th class="num">ROI</th>
+                  <th>Date</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" aria-labelledby="charts-title">
+          <div class="card-header"><h2 id="charts-title">Charts</h2></div>
+          <div class="charts-grid">
+            <div class="chart-item">
+              <canvas id="allocationPie" height="200"></canvas>
+            </div>
+            <div class="chart-item">
+              <canvas id="categoryBar" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="container">
+        <p>© <span id="year"></span> ChamaChama. Built for Phase 1 Project.</p>
+      </div>
+    </footer>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
